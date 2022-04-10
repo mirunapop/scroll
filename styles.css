@@ -1,0 +1,16 @@
+body {
+  background-color: grey;
+}
+
+.offcanvas-bottom {
+  border: none;
+  height: 30vh;
+  background: white;
+}
+
+.offcanvas-body {
+  overflow-y: scroll;
+  height: 800px;
+  background-color: white;
+}
+/*# sourceMappingURL=styles.css.map */

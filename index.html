@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <title>whaaat</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="{% static FAVICON_FILE %}" type="image/x-icon" rel="icon" />
+        <link href="{% static FAVICON_FILE %}" type="image/x-icon" rel="shortcut icon" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/font-awesome-line-awesome/css/all.min.css">
+        <link rel="stylesheet" href="styles.css">
+        <link href="{% static 'bootstrap-datepicker/css/bootstrap-datepicker3.standalone.css' %}" rel="stylesheet">
+      </head>
+</head>
+<body>
+    <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+
+    <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel" >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+        <button type="button" class="btn-close text-reset" id="off-button" data-bs-dismiss="offcanvas" onClick="close()"  aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body small" id="card_body">
+        <p>
+            now you see me, now you don't
+        </p>
+        <p class="py-5 my-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae asperiores velit sit at, dolor amet sint aperiam eos obcaecati necessitatibus atque magnam dolorem corporis placeat facilis. Similique tenetur necessitatibus vitae.
+        </p>
+        <p class="py-5 my-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae asperiores velit sit at, dolor amet sint aperiam eos obcaecati necessitatibus atque magnam dolorem corporis placeat facilis. Similique tenetur necessitatibus vitae.
+        </p>
+        <p class="py-5 my-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae asperiores velit sit at, dolor amet sint aperiam eos obcaecati necessitatibus atque magnam dolorem corporis placeat facilis. Similique tenetur necessitatibus vitae.
+        </p>
+        <p class="py-5 my-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae asperiores velit sit at, dolor amet sint aperiam eos obcaecati necessitatibus atque magnam dolorem corporis placeat facilis. Similique tenetur necessitatibus vitae.
+        </p>
+        <p class="py-5 my-5">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae asperiores velit sit at, dolor amet sint aperiam eos obcaecati necessitatibus atque magnam dolorem corporis placeat facilis. Similique tenetur necessitatibus vitae.
+        </p>
+        </div>
+    </div>
+
+    <script>
+
+
+        document.addEventListener("DOMContentLoaded", function(){
+            oldScroll = 0;
+            canvas = document.getElementById("offcanvasBottom");
+            var prev = canvas.clientHeight * 0.65;
+            canvas.style.height = prev;
+            console.log(prev);
+            card_body = document.getElementById("card_body");
+            card_body.addEventListener('scroll', function(){
+                if(card_body.clientHeight < screen.height && card_body.offsetHeight + card_body.scrollTop < card_body.scrollHeight && oldScroll < card_body.scrollTop){
+                    let scroll_up = card_body.scrollTop;
+                    var new_height = prev + scroll_up;
+                    canvas.style.height = new_height + 'px';
+                    oldScroll = scroll_up;
+                }
+            });
+
+            close_btn = document.getElementById("off-button");
+            close_btn.addEventListener('click', function(){
+                canvas.style.height = prev + 'px';
+                oldScroll = 0;
+                card_body.scrollTop = 0;
+            })
+
+        });
+
+    </script>
+
+    <script data-reflex-permanent src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+</body>
+</html>
